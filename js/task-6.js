@@ -20,15 +20,17 @@ function create() {
 
 function createBoxes(amount) {
   destroyBoxes();
+  const fragment = document.createDocumentFragment();
   for (let index = 0; index < amount; index++) {
     const element = document.createElement("div");
     element.style.width = `${dimensions}px`;
     element.style.height = `${dimensions}px`;
     element.style.backgroundColor = getRandomHexColor();
 
-    boxes.append(element);
+    fragment.append(element);
     dimensions += 10;
   }
+  boxes.append(fragment);
 }
 
 function destroyBoxes() {
